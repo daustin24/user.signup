@@ -2,28 +2,28 @@
 
 {% block content %}
 
-<form action = "/welcome" methods="POST">
+<form action = "/" method="POST">
     
-    <label>Username</label><br>
-    <input id ="user" type="text" name="username"> <br>
+    <label>Username<br>
+        <input id ="user" type="text" name="username" value="{{username}}">
+        <span class="error">{{username_error}}</span>
+    </label>
+    <br>
     <label>Password<br>
-        <input id="pswd" type="password" name="password">
+        <input id="pswd" type="password" name="password" value="{{password}}">
+        <span class="error">{{pswd_error}}</span>
     </label>
     <br>
     <label>Verify Password:</label><br>
-    <input  type="password" name="password_confirmation">
+        <input  type="password" name="verify">
+        <span class="error">{{pswd_ver}}</span>
     <br>
     <label>Email Address:<br>
-       <input type="email" name="email-address" >
+       <input type="text" name="email" value="{{email}}" >
+       <span class="error">{{email_error}}</span>
    </label>
-   <br>
    <br>
    <input type="submit" value="Submit">
 </form>
-
-{% if username|length < 0 %}
-
-
-{% endif %}
 
 {% endblock %}
