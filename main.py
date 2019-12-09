@@ -30,14 +30,14 @@ def index():
             username_error = ("Username must be between 3 and 20 characters.")
         
         if email:
-            if email.count('@') < 1 or email.count('.') or email.count(" ") > 0:
+            if email.count('@') != 1 or email.count('.') != 1 or email.count(" ") > 0:
                 strikes += 1
                 email_error = ("Invalid Email Address")
         
         if strikes == 0:
             return redirect('/welcome?username=' + username)
         else:
-            return render_template('functions.html', pswd_error=pswd_error, username_error=username_error, email_error=email_error, pswd_ver=pswd_ver, password=password, verify=verify, username=username, email=email)
+            return render_template('functions.html', pswd_error=pswd_error, username_error=username_error, email_error=email_error, pswd_ver=pswd_ver, verify=verify, username=username, email=email)
 
     return render_template('functions.html')
 
